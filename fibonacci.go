@@ -14,9 +14,10 @@ func main() {
 		sum += fibNaive(i)
 	}
 	end := time.Now()
+	naiveTime := end.Sub(start)
 
 	fmt.Println("Result was ", sum)
-	fmt.Println("Time: ", end.Sub(start))
+	fmt.Println("Time: ", naiveTime)
 
 	sum = 0
 	start = time.Now()
@@ -24,9 +25,12 @@ func main() {
 		sum += fibBetter(i, make(map[int64]int64))
 	}
 	end = time.Now()
+	betterTime := end.Sub(start)
 
 	fmt.Println("Result was ", sum)
-	fmt.Println("Time: ", end.Sub(start))
+	fmt.Println("Time: ", betterTime)
+
+	fmt.Println("Better was ", naiveTime - betterTime, "better than naive")
 }
 
 /**
